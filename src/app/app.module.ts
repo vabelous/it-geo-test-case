@@ -4,10 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LeftSideNavComponent } from './layouts/left-side-nav/left-side-nav.component';
+import { TopBarComponent } from './layouts/top-bar/top-bar.component';
+import { LayoutsComponent } from './layouts/layouts.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LeftSideNavComponent,
+    TopBarComponent,
+    LayoutsComponent
   ],
   imports: [
     BrowserModule,

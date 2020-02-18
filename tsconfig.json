@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "src",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -17,7 +17,12 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@it-geo-models/*": ["app/common/models/*"],
+      "@it-geo-modules/*": ["app/common/modules/*"],
+      "@it-geo-factories/*": ["app/common/factories/*"],
+    },
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
