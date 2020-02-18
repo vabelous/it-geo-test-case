@@ -12,7 +12,7 @@ export const routes: Routes = [
 				},
 				{
 					path: 'layouts',
-					loadChildren: () => import('../layouts/layouts.module').then(loaded => loaded.LayoutsnModule)
+					loadChildren: () => import('../layouts/layouts.module').then(loaded => loaded.LayoutsModule)
 				}
 		]
 		},
