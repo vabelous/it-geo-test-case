@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LeftSideNavComponent } from './layouts/left-side-nav/left-side-nav.component';
 import { TopBarComponent } from './layouts/top-bar/top-bar.component';
-import { LayoutsComponent } from './layouts/layouts.component';
 import { DynamicFormComponent } from './interaction/dynamic-form/dynamic-form.component';
 
 @NgModule({
@@ -14,7 +13,6 @@ import { DynamicFormComponent } from './interaction/dynamic-form/dynamic-form.co
     AppComponent,
     LeftSideNavComponent,
     TopBarComponent,
-    LayoutsComponent,
     DynamicFormComponent
   ],
   imports: [

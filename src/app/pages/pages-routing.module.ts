@@ -7,7 +7,7 @@ import { Error404Component } from './error-404';
   imports: [
 	RouterModule.forChild([
 		{
-			path: 'forbidden',
+			path: 'error-403',
 			component: Error403Component,
 		},
 		{

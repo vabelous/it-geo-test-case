@@ -1,11 +1,47 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes, ExtraOptions } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
 
+const config: ExtraOptions = {
+	useHash: false,
+	enableTracing: false,
+	scrollPositionRestoration: 'enabled'
+};
 
-const routes: Routes = [];
+export const routes: Routes = [
+	// {
+	// 	path: 'it-geo',
+	// 	children: [
+	// 			{
+	// 				path: '',
+	// 				redirectTo: 'layouts',
+	// 				pathMatch: 'full'
+	// 			},
+	// 			{
+	// 				path: 'layouts',
+	// 				loadChildren: () => import('./layouts/layouts.module').then(loaded => loaded.LayoutsModule)
+	// 			}
+	// 		]
+	// },
+	{
+		path: 'pages',
+		loadChildren: () => import('./pages/pages.module').then(loaded => loaded.PagesModule)
+	},
+	// {
+	// 	path: '',
+	// 	redirectTo: 'it-geo/layouts',
+	// 	pathMatch: 'full'
+	// },
+	// {
+	// 	path: '**',
+	// 	redirectTo: 'pages/error-404'
+	// }
+];
+
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+	imports: [BrowserModule, RouterModule.forRoot(routes, config)],
+	exports: [RouterModule],
+	providers: []
 })
 export class AppRoutingModule { }
