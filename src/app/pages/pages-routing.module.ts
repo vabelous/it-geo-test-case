@@ -1,23 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { LoginComponent } from './login';
-import { ForbiddenComponent } from './forbidden';
-import { NotFoundComponent } from './not-found';
+import { Error403Component } from './error-403';
+import { Error404Component } from './error-404';
 
 @NgModule({
   imports: [
 	RouterModule.forChild([
 		{
-			path: 'login',
-			component: LoginComponent,
-		},
-		{
 			path: 'forbidden',
-			component: ForbiddenComponent,
+			component: Error403Component,
 		},
 		{
 			path: 'error-404',
-			component: NotFoundComponent,
+			component: Error404Component,
 		},
 	]),
 	],
