@@ -8,7 +8,7 @@ export interface LanguageState  {
 
 export const initialState: LanguageState = {
 	pending: false,
-	data: null
+	data: "ru"
 };
 
 export const reducer = (state = initialState, action: LanguageActions): LanguageState => {

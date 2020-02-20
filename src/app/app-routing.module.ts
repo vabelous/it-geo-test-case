@@ -32,10 +32,10 @@ export const routes: Routes = [
 	// 	redirectTo: 'it-geo/layouts',
 	// 	pathMatch: 'full'
 	// },
-	// {
-	// 	path: '**',
-	// 	redirectTo: 'pages/error-404'
-	// }
+	{
+		path: '**',
+		redirectTo: 'pages/error-404'
+	}
 ];
 
 
