@@ -1,2 +1,13 @@
 <it-geo-top-bar></it-geo-top-bar>
 <p>layouts works!</p>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #leftSidenav mode="side" opened class="mat-elevation-z4">
+        <it-geo-left-side-nav></it-geo-left-side-nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <p>dvdsvds</p>
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -6,6 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { LayoutsRoutingModule } from './layouts-routing.module';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { LeftSideNavComponent } from './left-side-nav/left-side-nav.component';
+import { LayoutsMaterialModule } from './layouts-material.module';
 
 
 
@@ -16,10 +17,12 @@ import { LeftSideNavComponent } from './left-side-nav/left-side-nav.component';
 		ReactiveFormsModule,
 		FormsModule,
 		LayoutsRoutingModule,
+		LayoutsMaterialModule,
 	],
 	declarations: [
 		LayoutsComponent,
 		TopBarComponent,
+		LeftSideNavComponent,
 	],
 	exports: [
 		LayoutsComponent,
