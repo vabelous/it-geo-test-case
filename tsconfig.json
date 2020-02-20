@@ -22,6 +22,11 @@
       "@it-geo-models/*": ["app/common/models/*"],
       "@it-geo-modules/*": ["app/common/modules/*"],
       "@it-geo-factories/*": ["app/common/factories/*"],
+      "@it-geo-store/*": ["app/common/store/*"],
+      "@it-geo-actions": ["app/common/store/actions"],
+      "@it-geo-effects": ["app/common/store/effects"],
+      "@it-geo-selectors": ["app/common/store/selectors"],
+      "@it-geo-reducers": ["app/common/store/reducers"],
     },
   },
   "angularCompilerOptions": {

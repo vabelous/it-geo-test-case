@@ -1,26 +1,43 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LeftSideNavComponent } from './layouts/left-side-nav/left-side-nav.component';
-import { TopBarComponent } from './layouts/top-bar/top-bar.component';
-import { DynamicFormComponent } from './interaction/dynamic-form/dynamic-form.component';
+import { SvgIconsModule } from '@it-geo-modules/svg-icon.module';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { CustomRouterStateSerializer } from '@it-geo-store/router';
+import * as fromStore from '@it-geo-store/index';
+
+import {
+  
+  RouterStateSerializer
+} from '@ngrx/router-store';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LeftSideNavComponent,
-    TopBarComponent,
-    DynamicFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SvgIconsModule,
+    StoreModule.forRoot(fromStore.reducers),
+    EffectsModule.forRoot(fromStore.effects),
+    StoreRouterConnectingModule.forRoot({
+			stateKey: 'router' // name of reducer key
+		}),
+
   ],
-  providers: [],
+  providers: [
+    {
+      provide: RouterStateSerializer,
+			useClass: CustomRouterStateSerializer
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
