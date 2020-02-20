@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, ExtraOptions } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { LayoutsComponent } from './layouts';
 
 const config: ExtraOptions = {
 	useHash: false,
@@ -9,29 +10,20 @@ const config: ExtraOptions = {
 };
 
 export const routes: Routes = [
-	// {
-	// 	path: 'it-geo',
-	// 	children: [
-	// 			{
-	// 				path: '',
-	// 				redirectTo: 'layouts',
-	// 				pathMatch: 'full'
-	// 			},
-	// 			{
-	// 				path: 'layouts',
-	// 				loadChildren: () => import('./layouts/layouts.module').then(loaded => loaded.LayoutsModule)
-	// 			}
-	// 		]
-	// },
+	{
+		path: 'it-geo',
+		loadChildren: () => import('./layouts/layouts.module').then(mod => mod.LayoutsModule)
+	},	
 	{
 		path: 'pages',
-		loadChildren: () => import('./pages/pages.module').then(mod => mod.PagesModule)
+		loadChildren: () => import('./pages/pages.module').then(mod => mod.PagesModule),
 	},
-	// {
-	// 	path: '',
-	// 	redirectTo: 'it-geo/layouts',
-	// 	pathMatch: 'full'
-	// },
+
+	{
+		path: '',
+		redirectTo: 'it-geo',
+		pathMatch: 'full'
+	},
 	{
 		path: '**',
 		redirectTo: 'pages/error-404'
