@@ -4,6 +4,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LayoutsComponent } from './layouts.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LayoutsRoutingModule } from './layouts-routing.module';
+import { TopBarComponent } from './top-bar/top-bar.component';
+import { LeftSideNavComponent } from './left-side-nav/left-side-nav.component';
 
 
 
@@ -16,7 +18,8 @@ import { LayoutsRoutingModule } from './layouts-routing.module';
 		LayoutsRoutingModule,
 	],
 	declarations: [
-		LayoutsComponent
+		LayoutsComponent,
+		TopBarComponent,
 	],
 	exports: [
 		LayoutsComponent,
