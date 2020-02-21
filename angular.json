@@ -30,7 +30,7 @@
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss",
-              "src/assets/themes/pager-error-theme.scss"
+              "src/assets/themes/pages-error-theme.scss"
             ],
             "scripts": []
           },
