@@ -11,6 +11,11 @@ const userdb = JSON.parse(fs.readFileSync('server/users.json', 'UTF-8'));
 server.use(bodyParser.urlencoded({extended: true}));
 server.use(bodyParser.json());
 server.use(jsonServer.defaults());
+server.use(jsonServer.rewriter({
+	'/it-geo/api/dictionaries/languages': '/languages',
+	'/interaction/dynamic-form': '/dynamic-form'
+  }))
+  
 
 const SECRET_KEY = '123456789';
 

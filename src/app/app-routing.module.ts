@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, ExtraOptions } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { LayoutsComponent } from './layouts';
+import { DictionariesResolver } from './router';
 
 const config: ExtraOptions = {
 	useHash: false,
@@ -12,6 +12,9 @@ const config: ExtraOptions = {
 export const routes: Routes = [
 	{
 		path: 'it-geo',
+		resolve: {
+			dictionaries: DictionariesResolver,
+		},
 		loadChildren: () => import('./layouts/layouts.module').then(mod => mod.LayoutsModule)
 	},	
 	{
@@ -34,6 +37,6 @@ export const routes: Routes = [
 @NgModule({
 	imports: [BrowserModule, RouterModule.forRoot(routes, config)],
 	exports: [RouterModule],
-	providers: []
+	providers: [DictionariesResolver]
 })
 export class AppRoutingModule { }

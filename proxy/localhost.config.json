@@ -1,5 +1,5 @@
 {
-  "http://localhost:4200/api/*": {
+  "http://localhost:4200/it-geo/api/*": {
     "target": "http://localhost:3000/",
     "secure": false,
     "changeOrigin": true,

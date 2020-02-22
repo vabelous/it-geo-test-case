@@ -8,7 +8,11 @@ export interface LanguageState  {
 
 export const initialState: LanguageState = {
 	pending: false,
-	data: "ru"
+	data: {
+		value: 'ru',
+		label: 'Русский',
+		imgUrl: 'assets/svg-icons/languages/ru.svg'
+	}
 };
 
 export const reducer = (state = initialState, action: LanguageActions): LanguageState => {

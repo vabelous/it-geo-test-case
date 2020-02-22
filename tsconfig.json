@@ -27,6 +27,7 @@
       "@it-geo-effects": ["app/common/store/effects"],
       "@it-geo-selectors": ["app/common/store/selectors"],
       "@it-geo-reducers": ["app/common/store/reducers"],
+      "@it-geo-services/*": ["app/common/services/*"],
     },
   },
   "angularCompilerOptions": {

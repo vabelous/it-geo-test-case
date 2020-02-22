@@ -1,6 +1,6 @@
 
 {
-    "form": {
+    "dynamic-form": {
         "blocks" : [
             {
                 "id": 1,
@@ -23,5 +23,22 @@
                 "block_id" : 1
             }
         ]
-    }
+    },
+    "languages" : [
+        {
+            "value": "ru",
+            "label": "Русский",
+            "imgUrl": "assets/svg-icons/languages/ru.svg"
+        },
+        {
+            "value": "en",
+            "label": "English",
+            "imgUrl": "assets/svg-icons/languages/en.svg"
+        },
+        {
+            "value": "us",
+            "label": "US",
+            "imgUrl": "assets/svg-icons/languages/us.svg"
+        }
+    ]
 }
