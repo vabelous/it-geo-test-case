@@ -12,7 +12,6 @@ export class DictionariesResolver implements Resolve<any> {
 	) { }
 
 	resolve() {
-		console.log('resolve');
         this.store.dispatch(new RequestDictionaries());
 	}
 }

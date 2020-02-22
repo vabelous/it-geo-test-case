@@ -43,8 +43,8 @@ function isAuthenticated({username, password}) {
 
 // Регистрация пользователя
 server.post('/api/authentication/registration', (req, res) => {
-	console.log('registration endpoint вызвана; request body:');
-	console.log(req.body);
+	// console.log('registration endpoint вызвана; request body:');
+	// console.log(req.body);
 	const {username, password} = req.body;
 
 	if (isAuthenticated({username, password}) === true) {
@@ -85,15 +85,15 @@ server.post('/api/authentication/registration', (req, res) => {
 	// Создание токена для нового пользователя
 	const access_token = createToken({username, password});
 	const refresh_token = refreshToken({username, password});
-	console.log("Access Token: ", access_token);
-	console.log("Refresh Token: ", refresh_token);
+	// console.log("Access Token: ", access_token);
+	// console.log("Refresh Token: ", refresh_token);
 	res.status(200).json({access_token, refresh_token});
 });
 
 // Авторизация для пользователя из  ./users.json
 server.post('/api/authentication/login', (req, res) => {
-	console.log('login endpoint вызвана; request body:');
-	console.log(req.body);
+	// console.log('login endpoint вызвана; request body:');
+	// console.log(req.body);
 	const {username, password} = req.body;
 	if (isAuthenticated({username, password}) === false) {
 		const status = 401;
@@ -103,8 +103,8 @@ server.post('/api/authentication/login', (req, res) => {
 	}
 	const access_token = createToken({username, password});
 	const refresh_token = refreshToken({username, password});
-	console.log("Access Token: ", access_token);
-	console.log("Refresh Token: ", refresh_token);
+	// console.log("Access Token: ", access_token);
+	// console.log("Refresh Token: ", refresh_token);
 	res.status(200).json({access_token, refresh_token});
 });
 
@@ -150,7 +150,7 @@ server.post('/api/authentication/login', (req, res) => {
 
 server.use(router);
 server.listen(3000, () => {
-	console.log('JSON Server is running');
+	// console.log('JSON Server is running');
 });
 
 // function formatUser(user) {

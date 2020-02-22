@@ -14,7 +14,6 @@ export class DictionariesService {
 	) { this.baseUrl = '/it-geo/api'; }
 
 	public getDictionaries(params: DictionariesGetDTO): Observable<LanguagesDTO> {
-		console.log('d');
 		return this.http.get<LanguagesDTO>(`${this.baseUrl}/dictionaries/${params.code}`, {
 			headers: this.restAPIService.getHttpHeadersFromObject({'HideSpinner': 'true'})
 		});
