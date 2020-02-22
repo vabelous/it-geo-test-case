@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-languages-selector',
+  selector: 'it-geo-languages-selector',
   templateUrl: './languages-selector.component.html',
   styleUrls: ['./languages-selector.component.scss']
 })
