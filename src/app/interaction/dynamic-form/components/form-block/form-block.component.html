@@ -1,0 +1,25 @@
+<p>{{block.style}}</p>
+<mat-card 
+    class="mat-elevation-z4"
+    [ngStyle]="block.style"
+    >
+    <mat-card-title>
+        <div class="number-row">
+            <mat-icon class="mat-24">local_phone</mat-icon>
+            <!-- <span class="number">{{ (selectedMsisdn$ | async) | formatPhone }}</span> -->
+        </div>
+        <div class="period-row">
+            <span >Период действия контракта</span>
+            <!-- <span>{{ (selectedContract$ | async)?.dateFrom | date:'dd.MM.yy, HH:mm'}} - {{ (selectedContract$ | async)?.dateTo |  date:'dd.MM.yy, HH:mm'}}</span> -->
+        </div>
+    </mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <div class="balans-row">
+            <span class="name">Баланс</span>
+            <!-- <span>{{ (balance$ | async)?.accountingBalance?.balance?.amount | formatPrice }} ₽</span> -->
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+</mat-card>

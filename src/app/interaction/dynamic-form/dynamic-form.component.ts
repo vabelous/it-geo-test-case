@@ -15,14 +15,16 @@ export class DynamicFormComponent implements OnInit {
   
   constructor(
     private dynamicFormService: DynamicFormService,
-  ) { }
+  ) { 
+    this.dynamicForm$ = new Subject<DynamicFormDTO>();
+  }
 
   ngOnInit(): void {
     this.dynamicFormSub$ = this.dynamicFormService.getDynamicForm()
       .pipe(
-        tap(response => console.log(response))
+        tap(response => this.dynamicForm$.next(response))
       )
-      .subscribe()
+      .subscribe();
   }
 
 }

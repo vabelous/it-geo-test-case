@@ -10,7 +10,8 @@ declare interface DynamicFormBlocksDTO extends Array<DynamicFormBlockDTO> {}
 declare interface DynamicFormFieldDTO {
     id: number,
     title: string,
-    block_id: number
+    block_id: number,
+    style: string
 }
 
 declare interface DynamicFormFieldsDTO extends Array<DynamicFormFieldDTO> {}

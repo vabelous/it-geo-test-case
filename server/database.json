@@ -5,14 +5,19 @@
             {
                 "id": 1,
                 "title" : "Блок 1",
-                "parent" : null,
-                "size" : {
-                    "cols" : 16,
-                    "rows" : 1,
-                    "color" : "lightpink"
-                },
-                "style" : {
-                    "cols" : 10
+                "parent_id" : null,
+                "style": { 
+                    "background": "yellow",
+                    "color": "red" 
+                }
+            },
+            {
+                "id": 2,
+                "title" : "Блок 2",
+                "parent_id" : null,
+                "style": { 
+                    "background": "blue",
+                    "color": "red" 
                 }
             }
         ],

@@ -1,1 +1,5 @@
 <p>dynamic-form works!</p>
+<div *ngFor="let block of (dynamicForm$ | async)?.blocks">
+    <it-geo-form-block [block]="block"></it-geo-form-block>
+</div>
+

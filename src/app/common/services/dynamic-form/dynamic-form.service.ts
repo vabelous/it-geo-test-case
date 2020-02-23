@@ -17,8 +17,6 @@ export class DynamicFormService {
 	getDynamicForm(): Observable<DynamicFormDTO> {
 		return this.http.get<DynamicFormDTO>(`${this.baseUrl}/interaction/dynamic-form`, {
 			headers: this.restAPIService.getHttpHeadersFromObject({'HideSpinner': 'true'})
-		}).pipe(
-			tap(resp => console.log(resp))
-		);
+		});
 	}
 }
