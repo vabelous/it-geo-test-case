@@ -13,7 +13,7 @@ server.use(bodyParser.json());
 server.use(jsonServer.defaults());
 server.use(jsonServer.rewriter({
 	'/it-geo/api/dictionaries/languages': '/languages',
-	'/interaction/dynamic-form': '/dynamic-form'
+	'/it-geo/api/interaction/dynamic-form': '/dynamic-form'
   }))
   
 

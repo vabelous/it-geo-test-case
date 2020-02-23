@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription, Subject } from 'rxjs';
+import { DynamicFormService } from '@it-geo-services/dynamic-form';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DynamicFormComponent implements OnInit {
 
-  constructor() { }
+  public dynamicFormSub$: Subscription;
+  public dynamicForm$: Subject<DynamicFormDTO>;
+  
+  constructor(
+    private dynamicFormService: DynamicFormService,
+  ) { }
 
   ngOnInit(): void {
+    this.dynamicFormSub$ = this.dynamicFormService.getDynamicForm()
+      .pipe(
+        tap(response => console.log(response))
+      )
+      .subscribe()
   }
 
 }
