@@ -16,7 +16,6 @@ import { DynamicFormComponent } from './dynamic-form.component';
 		TextMaskModule,
 		DynamicFormRoutingModule,
 		DynamicFormMaterialModule,
-		DynamicFormComponent
 	],
 	declarations: [
 		DynamicFormComponent

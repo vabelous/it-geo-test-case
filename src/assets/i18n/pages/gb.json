@@ -1,0 +1,12 @@
+{
+	"pages": {
+		"error-403": {
+			"message": "Sorry, you do not have permission to access the page you want to open.",
+			"back-link": "Вернуться на главную страницу"
+		},
+		"error-404": {
+			"message": "К сожалению, мы не можем найти страницу, которую вы искали",
+			"back-link": "Вернуться на главную страницу"
+		}
+	}
+}

@@ -17,6 +17,8 @@ export class I18nComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.currentLanguage$.subscribe(language => this.translate.use(language));
+    this.currentLanguage$.subscribe(language => {
+      this.translate.use(language);
+    });
   }
 }

@@ -8,8 +8,18 @@ import { LayoutsComponent } from './layouts.component';
 			{
 				path: '',
 				component: LayoutsComponent,
-				// loadChildren: () => import('./interaction/interaction.module').then(mod => mod.InteractionModule),
-			},
+				children: [
+					{
+						path: 'interaction',
+						children: [
+							{
+								path: 'dynamic-form',
+								loadChildren: () => import('app/interaction/dynamic-form/dynamic-form.module').then(mod => mod.DynamicFormModule)
+							}
+						]
+					}
+				],
+			}
 		]),
 	],
 	exports: [

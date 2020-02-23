@@ -1,0 +1,17 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+.mat-menu-panel  {
+    &.left-side-nav-menu-expand{
+        margin-left: 250px;
+        max-height: calc(100vh - 113px);
+    }
+    &.left-side-nav-menu{
+        margin-left: 56px;
+        max-height: calc(100vh - 113px);
+    }
+}
+
+.mat-drawer-container {
+    height: 100vh;
+}
