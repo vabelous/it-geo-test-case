@@ -3,16 +3,12 @@ import { LanguageActionTypes } from '@it-geo-actions';
 
 export interface LanguageState  {
 	pending: boolean;
-	data: LanguageDTO;
+	data: LanguageValueDTO;
 }
 
 export const initialState: LanguageState = {
 	pending: false,
-	data: {
-		value: 'ru',
-		label: 'Русский',
-		imgUrl: 'assets/svg-icons/languages/ru.svg'
-	}
+	data: 'ru',
 };
 
 export const reducer = (state = initialState, action: LanguageActions): LanguageState => {

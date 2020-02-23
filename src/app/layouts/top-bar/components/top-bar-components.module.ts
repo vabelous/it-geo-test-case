@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LanguagesSelectorComponent } from './languages-selector';
+import { TopBarMaterialModule } from './top-bar-material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -9,6 +11,8 @@ import { LanguagesSelectorComponent } from './languages-selector';
 	imports: [
 		CommonModule,
 		ReactiveFormsModule,
+		TopBarMaterialModule,
+		FlexLayoutModule
 	],
 	declarations: [
 		LanguagesSelectorComponent,

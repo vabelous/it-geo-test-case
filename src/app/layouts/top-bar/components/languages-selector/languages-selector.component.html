@@ -1,18 +1,17 @@
 <p>languages-selector works!</p>
 <mat-form-field class="mat-select-hide-underline">
-    <mat-select [value]="language.value" (valueChange)="selectLanguage($event)">
-      <mat-select-trigger>
-        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px" style="padding: 0 16px">
-          <img [src]="language.img" class="flag"/>
-          <span>{{ language.label }}</span>
-        </div>
-      </mat-select-trigger>
-      <mat-option *ngFor="let opt of languages" [value]="opt.value">
-        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
-          <img [src]="opt.img" class="flag" /> 
-          <span>{{ opt.label }}</span>
-        </div>
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  
+	<mat-select [value]="(selectedLanguage$ | async)?.value" (valueChange)="selectLanguage($event)">
+		<mat-select-trigger>
+			<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px" style="padding: 0 16px">
+				<img [src]="(selectedLanguage$ | async)?.imgUrl" class="flag" />
+				<span>{{ (selectedLanguage$ | async)?.label }}</span>
+			</div>
+		</mat-select-trigger>
+		<mat-option *ngFor="let opt of (languages$ | async)" [value]="opt.value">
+			<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+				<img [src]="opt.imgUrl" class="flag" />
+				<span>{{ opt.label }}</span>
+			</div>
+		</mat-option>
+	</mat-select>
+</mat-form-field>

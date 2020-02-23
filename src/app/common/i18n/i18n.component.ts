@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import * as fromSelectors from '@it-geo-selectors';
 
 export class I18nComponent implements OnInit {
-  currentLanguage$: Observable<LanguageDTO>;
+  currentLanguage$: Observable<LanguageValueDTO>;
   translate: TranslateService;
 
   constructor(store: Store<State>, translate: TranslateService) {
@@ -17,6 +17,6 @@ export class I18nComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.currentLanguage$.subscribe(language => this.translate.use(language.value));
+    this.currentLanguage$.subscribe(language => this.translate.use(language));
   }
 }

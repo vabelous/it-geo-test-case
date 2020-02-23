@@ -7,7 +7,7 @@ export enum LanguageActionTypes {
 
 export class SetLanguageSuccess implements Action {
 	readonly type = LanguageActionTypes.SetLanguageSuccess;
-	constructor(public payload: LanguageDTO) {}
+	constructor(public payload: LanguageValueDTO) {}
 }
 
 export class SetLanguageInitialState implements Action {

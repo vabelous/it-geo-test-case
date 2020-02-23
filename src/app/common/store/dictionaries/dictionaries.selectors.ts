@@ -1,5 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import * as fromReducers from '@it-geo-reducers';
+import { selectLanguageData } from '@it-geo-store/language/language.selectors';
 
 type State = fromReducers.dictionaries.DictionariesState;
 
@@ -20,3 +21,10 @@ export const selectDictionariesLanguages = createSelector(
 	(state: DictionariesStoreDTO) => state.languages
 );
 
+export const selectDictionariesLanguagesByValue = createSelector(
+	selectLanguageData,
+	selectDictionariesLanguages,
+	(selectLanguage: LanguageValueDTO, languages: LanguagesDTO ) => {
+		return languages.length && languages.find(language => language.value === selectLanguage);
+	}
+);
