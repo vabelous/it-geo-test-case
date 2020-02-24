@@ -1,4 +1,4 @@
-export const OGRN_MASK: InputMask = {
+export const OGRNMask: InputMask = {
   mask: [/\d/, '-', /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/],
   showMask: false,
   keepCharPositions: true,

@@ -1,4 +1,4 @@
-export const OKVED_MASK: InputMask = {
+export const OKVEDMask: InputMask = {
   mask: [/\d/, /\d/],
   showMask: false,
   keepCharPositions: true,

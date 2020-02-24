@@ -1,179 +1,50 @@
 import { AbstractControl, ValidatorFn, AbstractControlOptions, AsyncValidatorFn, FormArray, FormControl, FormGroup } from '@angular/forms';
 
-export enum FormControlAutocomplete {
-	Off='off',
-	On='on',
-}
+export type FormControlAutocompleteDTO = 'off' | 'on';
 
-export enum FormControlTypes {
-	Text = 'text',
-	Password = 'password',
-}
+export type FormControlFieldTypeDTO = 'input' | 'checkbox' | 'radio' | 'select';
 
-export enum FormControlActions {
-	Login = 'Вход в учетную запись',
-	SalePoint = 'Выбор точки продаж',
-	Search = 'Поиск абонента',
-	ServicesWidget = 'Список сервисов',
-	SearchReason = 'Поиск причин обращения',
-	SearchCustomerStructure = 'Поиск по структуре пользователя',
-	SaleContracts = 'Продажа контрактов',
-}
+export type FormControInputTypeDTO = 'color' | 'date' | 'datetime-local' | 'email' | 'month' | 'number' | 'password' | 'tel' | 'text' | 'time' | 'url' | 'week';
 
-export enum FormControlFields {
-	Login = 'username',
-	Password = 'password',
-	Msisdn = 'msisdn',
-	Passport = 'passport',
-	DocSeries = 'docSeries',
-	DocNumber = 'docNumber',
-	IsRussianDocument = 'isRussianDocument',
-	Contract = 'contract',
-	Account = 'account',
-	Sim = 'sim',
-	LastName = 'lastName',
-	FirstName = 'firstName',
-	MiddleName = 'middleName',
-	Birth = 'birth',
-	Inn = 'inn',
-	OrgName = 'orgName',
-	IsArchive = 'isArchive',
-	Region = 'region',
-	SalePoint = 'salePoint',
-	SearchProduct = 'searchProduct',
-	SearchReason = 'searchReason',
-	SearchCustomerStructure = 'SearchCustomerStructure',
-	IsRangeSearch = 'isRangeSearch',
-	SelectForNotSubType = 'selectForNotSubType',
-	NotSubType = 'notSubType',
-	LeftLimit = 'leftLimit',
-	RightLimit = 'rightLimit',
-	SimSelfInput = 'simSelfInput',
-	SelectForCurrentContract = 'selectForCurrentContract',
-	CurrentContract = 'currentContract',
-	SelectForCurrentPa = 'selectForCurrentPa',
-	CurrentPa = 'currentPa',
-	SaleSimTable = 'saleSimTable',
-	SelectedSimCount = 'selectedSimCount',
-	CurrentServiceProvider = 'currentServiceProvider',
-	SelectForIdentifyDocument = 'selectForIdentifyDocument',
-	IdentifyDocument = 'identifyDocument',
-	NoCustomerInfoMessage = 'noCustomerInfoMessage',
-	SpecialNumberInfoMessage = 'specialNumberInfoMessage',
-	TableDissimError = 'tableDissimError',
-	SpDissimError = 'spDissimError',
-	InterscectionInfoMessage = 'interscectionInfoMessage',
-	SelectedSimTable = 'selectedSimTable',
-	SelectedHlr = 'selectedHlr',
-	SelectedHlrCode = 'selectedHlrCode',
-	SelectedSeriveProvider = 'selectedSeriveProvider',
-	SelectedServiceProviderCode = 'selectedServiceProviderCode',
-	AvailableTariffPlansTable = 'availableTariffPlansTable',
-	NewTariffPlan = 'newTariffPlan',
-	ChangeNumberTable = 'changeNumberTable',
-	SelectionNumberTable = 'selectionNumberTable',
-	NewNumberFilter = 'newNumberFilter',
-	NewNumberMask = 'newNumberMask',
-	NumberNotChosenWarning = 'numberNotChosenWarning',
-	NotAllNumbersChosenWarning = 'notAllNumbersChosenWarning',
-	NoNumbersFoundWarning = 'noNumbersFoundWarning',
-	SelectForNewNumberType = 'selectForNewNumberType',
-	SelectedNewNumberType = 'selectedNewNumberType',
-	ServicesTable = 'servicesTable',
-	SelectForServicesTable = 'selectForServicesTable',
-	NewInfoMessage = 'newInfoMessage',
-	ChangeNumberTableResult = 'changeNumberTableResult',
-	SelectForDeliveryType = 'selectForDeliveryType',
-	DeliveryType = 'deliveryType',
-	DeliveryAdress = 'deliveryAdress',
-	TransferDisable = 'transferDisable',
-	SimCount = 'simCount',
-	ContractPrice = 'contractPrice',
-	WhereToSale = 'whereToSale',
-	DocumentsDeliveryAddress = 'documentsDeliveryAddress',
-	Dity = 'city',
-	Home = 'home',
-	Housing = 'housing',
-	Apartment = 'apartment',
-	Hint = 'hint',
-	SubscriberLegalCategory = 'subscriberLegalCategory',
-	SelectForSubscriberLegalCategory = 'selectForSubscriberLegalCategory',
-	SubscriberDocumentType = 'subscriberDocumentType',
-	SelectForSubscriberDocumentType = 'selectForSubscriberDocumentType',
-	SubscriberDocumentSeriesAndNumber = 'subscriberDocumentSeriesAndNumber',
-	SubscriberDocumentSeries = 'subscriberDocumentSeries',
-	SubscriberDocumentNumber = 'subscriberDocumentNumber',
-	SubscriberBirthday = 'subscriberBirthday',
-	SubscriberLastName = 'subscriberLastName',
-	SubscriberFirstName = 'subscriberFirstName',
-	SubscriberMiddleName = 'subscriberMiddleName',
-	SubscriberGender = 'subscriberGender',
-	SelectForSubscriberGender = 'selectForSubscriberGender',
-	SubscriberNationality = 'subscriberNationality',
-	SubscriberDocumentIssueCountry = 'subscriberDocumentIssueCountry',
-	SelectForSubscriberCountry = 'selectForSubscriberCountry',
-	SubscriberDocumentIssuerCode = 'subscriberDocumentIssuerCode',
-	SubscriberDocumentIssueDate = 'subscriberDocumentIssueDate',
-	SubscriberBirthPlace = 'subscriberBirthPlace',
-	SubscriberDocumentIssuer = 'subscriberDocumentIssuer',
-	SubscriberLengthOfStay = 'subscriberLengthOfStay',
-	SubscriberAddress = 'subscriberAddress',
-	SubscriberIndex = 'subscriberIndex',
-	SubscriberRegion = 'subscriberRegion',
-	SubscriberDistrict = 'subscriberDistrict',
-	SubscriberCity = 'subscriberCity',
-	SubscriberStreet = 'subscriberStreet',
-	SubscriberHouse = 'subscriberHouse',
-	SubscriberBlock = 'subscriberBlock',
-	SubscriberFlat = 'subscriberFlat',
-	SubscriberContactEmail = 'subscriberContactEmail',
-	NumberOfSubscribers = 'numberOfSubscribers',
-	CustomerTable = 'customerTable',
-	SubscriberTable = 'subscriberTable',
-	SelectedPassportId = 'selectedPassportId',
-}
+export type FormControlDisabledPropertyDTO = 'disable' | 'enable';
 
-export enum FormControlProperties {
-	disabled = 'disabled',
-	validators = 'validators',
-	mask = 'mask',
-	defaultValue = 'defaultValue',
-	placeholder = 'placeholder',
-	label = 'label',
-	required = 'required',
-	type = 'type',
-	autocomplete = 'autocomplete',
-}
-
-export enum DisabledPropertyTypes {
-  disable = 'disable',
-  enable = 'enable',
-}
-
-export type FormControlConfig = Map<string, Set<FormControlFields>>;
-
-export type SetOfFormControlFields = Set<FormControlFields>;
-
-export type FormContolFieldsWithFormContolList = Map<FormControlFields, ITGeoFormControl>;
+export interface FormControlSelectOptionDTO {
+    key : string;
+    value : string;
+} 
 
 export abstract class ITGeoAbstractControl extends AbstractControl {
-	mask?: InputMask;
-	placeholder?: string;
-	label?: string;
-	name?: string;
-	required?: boolean;
-	type?: FormControlTypes;
-	autocomplete?: FormControlAutocomplete;
+	name? : string;
+    fieldType? : FormControlFieldTypeDTO;
+    inputType? : FormControInputTypeDTO;
+    label? : string;
+    disabledProperty? : FormControlDisabledPropertyDTO;
+    autocomplete? : FormControlAutocompleteDTO;
+    defaultValue? : string | number | boolean;
+    options? : FormControlSelectOptionDTO;
+    placeholder? : string;
+    tooltip? : string;
+    required? : boolean;
+    mask? : InputMask;
+    validators? : Array<string>;
+    style?: string;
 }
 
 export class ITGeoFormControl extends FormControl {
-	mask?: InputMask;
-	placeholder?: string;
-	label?: string;
-	name?: string;
-	required?: boolean;
-	type?: FormControlTypes;
-	autocomplete?: FormControlAutocomplete;
+	name? : string;
+    fieldType? : FormControlFieldTypeDTO;
+    inputType? : FormControInputTypeDTO;
+    label? : string;
+    disabledProperty? : FormControlDisabledPropertyDTO;
+    autocomplete? : FormControlAutocompleteDTO;
+    defaultValue? : string | number | boolean;
+    options? : FormControlSelectOptionDTO;
+    placeholder? : string;
+    tooltip? : string;
+    required? : boolean;
+    mask? : InputMask;
+    validators? : Array<string>;
+    style?: string;
 }
 
 export class ITGeoFormArray extends FormArray {

@@ -1,4 +1,4 @@
-export const INN_10DG_MASK: InputMask = {
+export const INN10DgMask: InputMask = {
   mask: [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/],
   showMask: false,
   keepCharPositions: true,

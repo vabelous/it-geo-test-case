@@ -1,4 +1,4 @@
-export const OKPO_MASK: InputMask = {
+export const OKPOMask: InputMask = {
   mask: [/\d/, /\d/],
   showMask: false,
   keepCharPositions: true,
