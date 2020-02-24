@@ -22,7 +22,7 @@
                         "block_id" : 2,
                         "block_title" : "Сведения о заявителе",
                         "block_description" : "",
-                        "fields" : [3, 4, 5],
+                        "fields" : [3, 4, 5, 6, 7, 8],
                         "children" : []
                     }
 
@@ -72,6 +72,16 @@
                 "disabled" : false,
                 "autocomplete" : null,
                 "defaultValue" : null,
+                "option" : [
+                    {
+                        "key" : "101",
+                        "value" : "Заключение договоров социального найма жилых помещений жилищного фонда города Москвы, предоставленных по ордеру или на основании иных решений органов исполнительной власти города Москвы"
+                    },
+                    {
+                        "key" : "102",
+                        "value" : "Заключение договоров социального найма жилых помещений жилищного фонда города Москвы, предоставленных по ордеру или на основании иных решений органов законодательной власти города Москвы"
+                    }
+                ],
                 "placeholder" : null,
                 "tooltip" : "Выберите вид оказываемой услуги",
                 "required" : true,
@@ -86,6 +96,16 @@
                 "disabled" : false,
                 "autocomplete" : null,
                 "defaultValue" : null,
+                "option" : [
+                    {
+                        "key" : "1",
+                        "value" : "ДГИ"
+                    },
+                    {
+                        "key" : "2",
+                        "value" : "ДФО"
+                    }
+                ],
                 "placeholder" : null,
                 "tooltip" : "Выберите источник поступления",
                 "required" : true,
@@ -100,6 +120,7 @@
                 "disabled" : false,
                 "autocomplete" : "off",
                 "defaultValue" : null,
+                "option" : null,
                 "placeholder" : "Полное наименование юридического лица",
                 "tooltip" : "Введите полное наименование юридическоголица",
                 "required" : true,
@@ -114,6 +135,7 @@
                 "disabled" : false,
                 "autocomplete" : "off",
                 "defaultValue" : null,
+                "option" : null,
                 "placeholder" : "Юридический адрес",
                 "tooltip" : "Введите юридический адрес",
                 "required" : true,
@@ -128,8 +150,54 @@
                 "disabled" : false,
                 "autocomplete" : "off",
                 "defaultValue" : null,
+                "option" : null,
                 "placeholder" : "ОГРН",
                 "tooltip" : "Введите Основной государственный регистрационный номер",
+                "required" : true,
+                "mask" : null,
+                "style" : null
+            },
+            {
+                "id" : 6,
+                "fieldType" : "input",
+                "inputType" : "text",
+                "label" : "ИНН",
+                "disabled" : false,
+                "autocomplete" : "off",
+                "defaultValue" : null,
+                "option" : null,
+                "placeholder" : "ИНН",
+                "tooltip" : "Введите Идентификационный номер налогоплательщика",
+                "required" : true,
+                "mask" : null,
+                "style" : null
+            },
+            {
+                "id" : 7,
+                "fieldType" : "input",
+                "inputType" : "text",
+                "label" : "Телефон",
+                "disabled" : false,
+                "autocomplete" : "off",
+                "defaultValue" : null,
+                "option" : null,
+                "placeholder" : "Телефон",
+                "tooltip" : "Введите телефонный номер",
+                "required" : true,
+                "mask" : null,
+                "style" : null
+            },
+            {
+                "id" : 8,
+                "fieldType" : "input",
+                "inputType" : "text",
+                "label" : "E-mail",
+                "disabled" : false,
+                "autocomplete" : "off",
+                "defaultValue" : null,
+                "option" : null,
+                "placeholder" : "E-mail",
+                "tooltip" : "Введите адрес электронной почты",
                 "required" : true,
                 "mask" : null,
                 "style" : null

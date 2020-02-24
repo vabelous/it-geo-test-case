@@ -3,20 +3,23 @@
     [ngStyle]="block.style"
     >
     <mat-card-title>
-        <div class="number-row">
-            <mat-icon class="mat-24">local_phone</mat-icon>
-            <!-- <span class="number">{{ (selectedMsisdn$ | async) | formatPhone }}</span> -->
+        <div>
+            <span>{{block.block_title}}</span>
         </div>
-        <div class="period-row">
-            <span>{{block.title}}</span>
-            <!-- <span>{{ (selectedContract$ | async)?.dateFrom | date:'dd.MM.yy, HH:mm'}} - {{ (selectedContract$ | async)?.dateTo |  date:'dd.MM.yy, HH:mm'}}</span> -->
+        <div *ngIf="block.description && block.description.length">
+            <span>{{block.description}}</span>
         </div>
     </mat-card-title>
     <mat-divider></mat-divider>
     <mat-card-content>
-        <div class="balans-row">
-            <span class="name">Баланс</span>
-            <!-- <span>{{ (balance$ | async)?.accountingBalance?.balance?.amount | formatPrice }} ₽</span> -->
+        <div class="balans-row" *ngFor="let field of block.fields">
+            <span> {{field}} </span> 
+        </div>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <div class="balans-row" *ngFor="let child of block.children">
+            <it-geo-form-block [block]="child"></it-geo-form-block>
         </div>
     </mat-card-content>
     <mat-card-actions>

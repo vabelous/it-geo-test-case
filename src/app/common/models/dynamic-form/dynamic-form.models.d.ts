@@ -20,6 +20,13 @@ declare type DynamicFormFieldTypeDTO = 'input' | 'checkbox' | 'radio' | 'select'
 
 declare type DynamicFormInputTypeDTO = 'color' | 'date' | 'datetime-local' | 'email' | 'month' | 'number' | 'password' | 'tel' | 'text' | 'time' | 'url' | 'week';
 
+declare interface DynamicFormSelectOptionDTO {
+    key : string,
+    value : string
+} 
+
+declare interface DynamicFormSelectOptionsDTO extends Array<DynamicFormSelectOptionDTO> {}
+
 declare interface DynamicFormFieldDTO {
     id : number,
     fieldType : DynamicFormFieldTypeDTO,
@@ -28,6 +35,7 @@ declare interface DynamicFormFieldDTO {
     disabled? : boolean,
     autocomplete? : DynamicFormFieldAutocompleteDTO,
     defaultValue? : string | number | boolean,
+    options? : DynamicFormSelectOptionsDTO,
     placeholder? : string,
     tooltip? : string,
     required? : boolean
@@ -38,6 +46,7 @@ declare interface DynamicFormFieldDTO {
 declare interface DynamicFormFieldsDTO extends Array<DynamicFormFieldDTO> {}
 
 declare interface DynamicFormDTO {
-    blocks: DynamicFormBlocksDTO,
-    fields: DynamicFormFieldsDTO
+    model : DynamicFormModelBlockDTO,
+    blocks : DynamicFormBlocksDTO,
+    fields : DynamicFormFieldsDTO
 }
