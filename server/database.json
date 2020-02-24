@@ -1,34 +1,159 @@
 
 {
     "dynamic-form": {
+        "model" : [
+            {
+                "id" : 1,
+                "block_id" : 1,
+                "block_title" : "Информация по заявке",
+                "block_description" : "",
+                "fields" : [],
+                "children" : [
+                    {
+                        "id" : 2,
+                        "block_id" : 2,
+                        "block_title" : "Первичная информация по заявке",
+                        "block_description" : "",
+                        "fields" : [1, 2],
+                        "children" : []
+                    },
+                    {
+                        "id" : 3,
+                        "block_id" : 2,
+                        "block_title" : "Сведения о заявителе",
+                        "block_description" : "",
+                        "fields" : [3, 4, 5],
+                        "children" : []
+                    }
+
+                ]
+
+            }
+
+        ],
         "blocks" : [
             {
                 "id": 1,
-                "title" : "Блок 1",
-                "parent_id" : null,
                 "style": { 
                     "background": "yellow",
-                    "color": "red" 
+                    "color": "black" 
                 }
             },
             {
                 "id": 2,
-                "title" : "Блок 2",
-                "parent_id" : null,
                 "style": { 
                     "background": "blue",
-                    "color": "red" 
+                    "color": "black" 
+                }
+            },
+            {
+                "id": 3,
+                "style": { 
+                    "background": "green",
+                    "color": "black" 
+                }
+            },
+            {
+                "id": 4,
+                "title" : "Блок 4",
+                "parent_id" : 1,
+                "style": { 
+                    "background": "gray",
+                    "color": "black" 
                 }
             }
         ],
         "fields" : [
             {
                 "id" : 1,
-                "title" : "Заголовок 1",
-                "block_id" : 1
+                "fieldType" : "select",
+                "inputType" : null,
+                "label" : "Вид услуги",
+                "disabled" : false,
+                "autocomplete" : null,
+                "defaultValue" : null,
+                "placeholder" : null,
+                "tooltip" : "Выберите вид оказываемой услуги",
+                "required" : true,
+                "mask" : null,
+                "style" : null
+            },
+            {
+                "id" : 2,
+                "fieldType" : "select",
+                "inputType" : null,
+                "label" : "Источник поступления",
+                "disabled" : false,
+                "autocomplete" : null,
+                "defaultValue" : null,
+                "placeholder" : null,
+                "tooltip" : "Выберите источник поступления",
+                "required" : true,
+                "mask" : null,
+                "style" : null
+            },
+            {
+                "id" : 3,
+                "fieldType" : "input",
+                "inputType" : "text",
+                "label" : "Полное наименование юридического лица",
+                "disabled" : false,
+                "autocomplete" : "off",
+                "defaultValue" : null,
+                "placeholder" : "Полное наименование юридического лица",
+                "tooltip" : "Введите полное наименование юридическоголица",
+                "required" : true,
+                "mask" : null,
+                "style" : null
+            },
+            {
+                "id" : 4,
+                "fieldType" : "input",
+                "inputType" : "text",
+                "label" : "Юридический адрес",
+                "disabled" : false,
+                "autocomplete" : "off",
+                "defaultValue" : null,
+                "placeholder" : "Юридический адрес",
+                "tooltip" : "Введите юридический адрес",
+                "required" : true,
+                "mask" : null,
+                "style" : null
+            },
+            {
+                "id" : 5,
+                "fieldType" : "input",
+                "inputType" : "text",
+                "label" : "ОГРН",
+                "disabled" : false,
+                "autocomplete" : "off",
+                "defaultValue" : null,
+                "placeholder" : "ОГРН",
+                "tooltip" : "Введите Основной государственный регистрационный номер",
+                "required" : true,
+                "mask" : null,
+                "style" : null
             }
         ]
     },
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     "languages" : [
         {
             "value": "ru",
