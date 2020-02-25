@@ -11,19 +11,7 @@ export class SvgIconsModule {
 	) {
 		this.matIconRegistry.addSvgIcon(
 			'logo',
-			this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/svg-icons/logo.svg')
-		);
-		this.matIconRegistry.addSvgIcon(
-			'logo_window',
-			this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/svg-icons/login_window.svg')
-		);
-		this.matIconRegistry.addSvgIcon(
-			'incognito',
-			this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/svg-icons/incognito.svg')
-		);
-		this.matIconRegistry.addSvgIcon(
-			'fix-customer',
-			this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/svg-icons/fix-customer.svg')
+			this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg-icons/icons/logo_mos.svg')
 		);
 	}
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { State } from '@it-geo-store/index';
+import { Go } from '@it-geo-store/actions';
 
 @Component({
   selector: 'it-geo-top-bar',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private store: Store<State>
+  ) { }
 
   ngOnInit(): void {
   }
+
+  public goToInteraction(): void {
+		this.store.dispatch(new Go({
+			path: ['it-geo']
+		}));
+	}
 
 }
