@@ -1,0 +1,9 @@
+<p>form-field works!</p>
+<mat-form-field *ngIf="field.fieldType === 'input'">	
+    <mat-label>{{field.label}}</mat-label>
+        <input 
+
+        matInput
+        >
+        <!-- <mat-error *ngIf="fc.hasError('requiredField')">{{fc.errors['requiredField'] | translate }}</mat-error> -->
+</mat-form-field>

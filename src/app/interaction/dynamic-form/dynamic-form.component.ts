@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription, Subject } from 'rxjs';
 import { DynamicFormService } from '@it-geo-services/dynamic-form';
 import { tap } from 'rxjs/operators';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -12,7 +13,7 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
 
   public dynamicFormSub$: Subscription;
   public dynamicForm$: Subject<DynamicFormDTO>;
-  
+  public dynamicForm: FormGroup;
   constructor(
     private dynamicFormService: DynamicFormService,
   ) { 
@@ -25,11 +26,16 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
         tap(response => this.dynamicForm$.next(response))
       )
       .subscribe();
+    this.dynamicForm = new FormGroup({});
   }
 
   ngOnDestroy() {
 		if (this.dynamicFormSub$) {
 			this.dynamicFormSub$.unsubscribe();
     }
+  }
+
+  onSubmit() {
+    console.log('submit');
   }
 }

@@ -1,11 +1,35 @@
 declare interface DynamicFormModelBlockDTO {
-    id: number;
+    key: string;
     block_id: number;
     block_title: string;
     block_description: string;
-    fields: Array<number>;
-    children: Array<DynamicFormModelBlockDTO>;  
+    fields: DynamicFormModelFieldsDTO;
+    children: Array<DynamicFormModelBlockDTO>;
+    style? : object;
 }
+
+declare interface DynamicFormModelBlocksDTO extends Array<DynamicFormModelBlockDTO> {}
+
+declare interface DynamicFormModelFieldDTO {
+    key: string;
+    field_id: number;
+    protractorId? : string;    
+    fieldType? : DynamicFormFieldTypeDTO;
+    inputType? : DynamicFormInputTypeDTO;
+    label? : string;
+    disabled? : DynamicFormFieldDisabledDTO;
+    autocomplete? : DynamicFormFieldAutocompleteDTO;
+    defaultValue? : string | number | boolean;
+    options? : DynamicFormSelectOptionsDTO;
+    placeholder? : string;
+    tooltip? : string;
+    required? : boolean;
+    mask? : string;
+    validators? : Array<string>;
+    style?: object;
+}
+
+declare interface DynamicFormModelFieldsDTO extends Array<DynamicFormModelFieldDTO> {}
 
 declare interface DynamicFormBlockDTO {
     id: number,
@@ -43,13 +67,13 @@ declare interface DynamicFormFieldDTO {
     required? : boolean;
     mask? : string;
     validators? : Array<string>;
-    style?: string;
+    style?: object;
 }
 
 declare interface DynamicFormFieldsDTO extends Array<DynamicFormFieldDTO> {}
 
 declare interface DynamicFormDTO {
-    model : DynamicFormModelBlockDTO;
+    model : DynamicFormModelBlocksDTO;
     blocks : DynamicFormBlocksDTO;
     fields : DynamicFormFieldsDTO;
 }

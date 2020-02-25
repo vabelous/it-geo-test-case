@@ -14,7 +14,8 @@ export interface FormControlSelectOptionDTO {
 } 
 
 export abstract class ITGeoAbstractControl extends AbstractControl {
-	name? : string;
+    key? : string;
+    protractorId?: string;
     fieldType? : FormControlFieldTypeDTO;
     inputType? : FormControInputTypeDTO;
     label? : string;
@@ -31,7 +32,8 @@ export abstract class ITGeoAbstractControl extends AbstractControl {
 }
 
 export class ITGeoFormControl extends FormControl {
-	name? : string;
+    key? : string;
+    protractorId?: string;
     fieldType? : FormControlFieldTypeDTO;
     inputType? : FormControInputTypeDTO;
     label? : string;

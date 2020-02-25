@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { FormControlService } from '@it-geo-services/form-control';
 
 @Component({
   selector: 'it-geo-form-block',
@@ -8,10 +9,24 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FormBlockComponent implements OnInit {
   
   @Input() block;
-
-  constructor() { }
+  @Input() dynamicForm;
+  constructor(
+    private formControlService: FormControlService
+  ) { }
 
   ngOnInit(): void {
+    // this.dynamicForm = {
+    //   ... this.dynamicForm,
+    //   [this.block.key] : this.formControlService.getFormControlsList(this.block.fields)
+    // }
+    this.dynamicForm = {
+      ... this.dynamicForm,
+      [this.block.key] : this.formControlService.getFormControlsList(this.block.fields)
+    };
+
+    
+    
+    console.log(this.dynamicForm);
   }
 
 }

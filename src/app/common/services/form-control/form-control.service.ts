@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ITGeoFormControl } from '@it-geo-models/form-control-dto';
-import { ValidatorFn } from '@angular/forms';
+import { ValidatorFn, FormGroup } from '@angular/forms';
 import { ValidatorsService } from '@it-geo-services/validators/validators.sercice';
 import { MasksService } from '@it-geo-services/masks/masks.service';
 
@@ -12,11 +12,15 @@ export class FormControlService {
         private masksService: MasksService,
     ) {}
     
-    public getFormControlsList(includeFields : Array<number>, templateFields : DynamicFormFieldsDTO) {
-
+    public getFormControlsList(fields : DynamicFormModelFieldsDTO) {
+        let group: any = {};
+        fields.forEach(field => {
+            group[field.key] = this.getFiedlState(field)
+        })
+        return new FormGroup(group);
     } 
    
-    private getFiedlState(field: DynamicFormFieldDTO): ITGeoFormControl {
+    private getFiedlState(field: DynamicFormModelFieldDTO): ITGeoFormControl {
 		const fc = new ITGeoFormControl();
 		fc.setValidators(this.getValidatorsByName(field.validators));
 		fc.setValue(field.defaultValue);
@@ -28,7 +32,7 @@ export class FormControlService {
         fc.inputType = field.inputType;
 		fc.autocomplete = field.autocomplete;
 		fc.required = field.required;
-		fc.name = field.toString();
+		fc.key = field.key;
 		fc.updateValueAndValidity();
 		return fc;
     }

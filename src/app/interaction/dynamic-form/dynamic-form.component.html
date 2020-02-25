@@ -1,4 +1,14 @@
-<div *ngFor="let block of (dynamicForm$ | async)?.model">
-    <it-geo-form-block [block]="block"></it-geo-form-block>
-</div>
+<form
+    [formGroup]="dynamicForm" 
+    (ngSubmit)="onSubmit()"
+>
+    <div *ngFor="let block of (dynamicForm$ | async)?.model">
+        <it-geo-form-block [block]="block" [dynamicForm]="dynamicForm"></it-geo-form-block>
+    </div>  
+    
+    <div>
+        <!-- <button type="submit" [disabled]="!dynamicForm.valid">Сохранить</button> -->
+    </div>
+</form>
+
 
