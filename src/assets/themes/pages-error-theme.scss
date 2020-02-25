@@ -2,13 +2,16 @@
 @include mat-core();
 
 .it-geo-pages-error {
+    display: grid;
+    grid-template-columns: 1fr 1280px 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: ". main .";
+    align-items: center;
+    height: 100vh;
 
     .container {
-        display: grid;
-        grid-template-columns: 1fr;
-        align-content: center;
-        justify-items: center;
-        height: 100vh;
+        grid-area: main;
+        text-align: center;
     }
     
     .error-code {

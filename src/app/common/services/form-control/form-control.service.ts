@@ -25,9 +25,9 @@ export class FormControlService {
 		fc.mask = field.mask ? this.masksService.getMaskByName(field.mask) : null;
 		fc.label = field.label;
         fc.fieldType = field.fieldType;
-        fc.fieldType = field.fieldType;
-		fc.autocomplete = this.fieldStateService.getFormControlProperty(FormControlProperties.autocomplete, field);
-		fc.required = this.fieldStateService.getFormControlProperty(FormControlProperties.required, field);
+        fc.inputType = field.inputType;
+		fc.autocomplete = field.autocomplete;
+		fc.required = field.required;
 		fc.name = field.toString();
 		fc.updateValueAndValidity();
 		return fc;
