@@ -1,6 +1,25 @@
 @import '~@angular/material/theming';
 @include mat-core();
 
+
+.it-geo-layouts {
+    display: grid;
+    grid-template-columns: 1fr 1280px 1fr;
+    grid-template-rows: 60px 1fr 60px;
+    grid-template-areas:    ". top-bar ."
+    ". main ."
+    ". footer .";
+    align-items: center;
+    height: 100vh;
+}
+
+.it-geo-top-bar {
+    grid-area: top-bar;
+}
+
+.it-geo-side-nav-container {
+    grid-area: main;
+}
 .mat-menu-panel  {
     &.left-side-nav-menu-expand{
         margin-left: 250px;
