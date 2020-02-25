@@ -1,0 +1,6 @@
+.it-geo-top-bar {
+    grid-area: top-bar;
+    display: grid;
+    grid-template-columns: repeat(16, 60px);
+    grid-column-gap: 20px;
+}
