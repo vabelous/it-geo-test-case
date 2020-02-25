@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription, Subject } from 'rxjs';
 import { DynamicFormService } from '@it-geo-services/dynamic-form';
 import { tap } from 'rxjs/operators';
@@ -8,7 +8,7 @@ import { tap } from 'rxjs/operators';
   templateUrl: './dynamic-form.component.html',
   styleUrls: ['./dynamic-form.component.scss']
 })
-export class DynamicFormComponent implements OnInit {
+export class DynamicFormComponent implements OnInit, OnDestroy {
 
   public dynamicFormSub$: Subscription;
   public dynamicForm$: Subject<DynamicFormDTO>;
@@ -27,4 +27,9 @@ export class DynamicFormComponent implements OnInit {
       .subscribe();
   }
 
+  ngOnDestroy() {
+		if (this.dynamicFormSub$) {
+			this.dynamicFormSub$.unsubscribe();
+    }
+  }
 }

@@ -1,1 +1,21 @@
-<p>left-side-nav works!</p>
+<div class="it-geo-left-side-nav" [ngClass]="{'expand': !(hideTitles$ | async)}">
+	<div fxLayout="column">
+		<div fxLayou="row" fxLayoutAlign="end center">
+			<button style='width: 48px; height: 48px;' mat-icon-button (click)="setHideTitles($event)">
+				<mat-icon>{{ !(hideTitles$ | async) ? 'arrow_back' : 'arrow_forward' }}</mat-icon>
+			</button>
+		</div>
+		<mat-nav-list>
+			<mat-list-item 
+				matTooltip="Перейти в раздел работы с динамически формируемыми формами"
+				[matTooltipShowDelay]="1000"
+        		[matTooltipHideDelay]="500"
+				(click)="goToInteraction('it-geo/interaction/dynamic-form')">
+				<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+					<mat-icon>web</mat-icon>
+					<span *ngIf="!(hideTitles$ | async)">Динамическая форма</span>
+				</div>
+			</mat-list-item>
+		</mat-nav-list>
+	</div>
+</div>

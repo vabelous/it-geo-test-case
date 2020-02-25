@@ -4,7 +4,7 @@
 
 .it-geo-layouts {
     display: grid;
-    grid-template-columns: 1fr 1280px 1fr;
+    grid-template-columns: 1fr 1260px 1fr;
     grid-template-rows: 60px 1fr 60px;
     grid-template-areas:    ". top-bar ."
     ". main ."
@@ -15,9 +15,7 @@
 
 
 
-.it-geo-side-nav-container {
-    grid-area: main;
-}
+
 .mat-menu-panel  {
     &.left-side-nav-menu-expand{
         margin-left: 250px;
