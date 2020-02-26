@@ -14,7 +14,7 @@
     <mat-divider></mat-divider>
     <mat-card-content>
         <div class="balans-row" *ngFor="let field of block.fields">
-            <span> {{field.style | json}} </span> 
+            <!-- <span> {{field.style | json}} </span>  -->
             <it-geo-form-field [field]="field"></it-geo-form-field>
         </div>
     </mat-card-content>

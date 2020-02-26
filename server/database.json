@@ -78,8 +78,8 @@
             {
                 "id": 2,
                 "style": { 
-                    "background": "blue",
-                    "color": "white",
+                    "background": "white",
+                    "color": "black",
                     "margin": "10px"
                 }
             },
