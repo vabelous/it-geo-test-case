@@ -13,6 +13,7 @@
     </mat-card-title>
     <mat-divider></mat-divider>
     <mat-card-content>
+        <!-- <p>{{dynamicForm | json}}</p> -->
         <div class="balans-row" *ngFor="let field of block.fields">
             <!-- <span> {{field.style | json}} </span>  -->
             <it-geo-form-field [field]="field"></it-geo-form-field>

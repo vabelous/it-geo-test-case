@@ -19,11 +19,11 @@ export class FormBlockComponent implements OnInit {
     //   ... this.dynamicForm,
     //   [this.block.key] : this.formControlService.getFormControlsList(this.block.fields)
     // }
-    this.dynamicForm = {
-      ... this.dynamicForm,
-      [this.block.key] : this.formControlService.getFormControlsList(this.block.fields)
-    };
-
+    // this.dynamicForm = {
+    //   ... this.dynamicForm,
+    //   [this.block.key] : this.formControlService.getFormControlsList(this.block.fields)
+    // };
+    this.dynamicForm.addControl(this.block.key, this.formControlService.getFormControlsList(this.block.fields))
     
     
     console.log(this.dynamicForm);
