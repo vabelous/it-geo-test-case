@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ITGeoFormControl } from '@it-geo-models/form-control-dto';
-import { ValidatorFn, FormGroup, FormBuilder } from '@angular/forms';
+import { ValidatorFn } from '@angular/forms';
 import { ValidatorsService } from '@it-geo-services/validators/validators.sercice';
 import { MasksService } from '@it-geo-services/masks/masks.service';
 
@@ -10,40 +10,8 @@ export class FormControlService {
     constructor(
         private validatorsService: ValidatorsService,
         private masksService: MasksService,
-        private fb: FormBuilder,
     ) {}
     
-    public getFormControlsList(data : DynamicFormModelFieldsDTO) {
-        
-        let form = this.fb.group({});
-
-        function buildControls(fields: DynamicFormModelFieldsDTO) {
-            let group: { [key: string]: ITGeoFormControl } = {};
-            fields.forEach(field => {
-                group[field.key] = this.getFiedlState(field)
-            })
-            return group;
-        }
-
-        function buildGroup(blocks: DynamicFormModelBlocksDTO) {
-            blocks.forEach(block => {
-                if (block.fields && block.fields.length) {
-                    let group = buildControls(block.fields)
-                }
-            })
-        }
-
-
-
-
-        fields.forEach(field => {
-            group[field.key] = this.getFiedlState(field)
-        })
-        return group
-
-
-
-    } 
   
     private getFiedlState(field: DynamicFormModelFieldDTO): ITGeoFormControl {
 		const fc = new ITGeoFormControl();

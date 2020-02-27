@@ -18,9 +18,9 @@ export class FormBlockComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.dynamicForm.add
-    this.dynamicForm.addControl([this.block.key], this.fb.control(this.formControlService.getFormControlsList(this.block.fields)));
-    console.log("form: ", this.dynamicForm);
+    // this.dynamicForm.add
+    // this.dynamicForm.addControl([this.block.key], this.fb.control(this.formControlService.getFormControlsList(this.block.fields)));
+    // console.log("form: ", this.dynamicForm);
   }
 
 }
