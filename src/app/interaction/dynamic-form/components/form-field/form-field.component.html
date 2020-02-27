@@ -3,6 +3,8 @@
     <mat-label>{{field.label}}</mat-label>
         <input 
 
+        [formControlName]="field.key"
+
         matInput
         >
         <!-- <mat-error *ngIf="fc.hasError('requiredField')">{{fc.errors['requiredField'] | translate }}</mat-error> -->

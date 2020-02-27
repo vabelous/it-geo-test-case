@@ -1,7 +1,7 @@
 <mat-card 
     class="mat-elevation-z4"
     [ngStyle]="block.style"
-    [formGroup]="block.key"
+
     >
     <mat-card-title>
         <div>
@@ -13,16 +13,20 @@
     </mat-card-title>
     <mat-divider></mat-divider>
     <mat-card-content>
+        <p>{{block.key}}</p>
+        <form [formGroup]="block.key">
+            <div class="balans-row" *ngFor="let field of block.fields">
+        
+                <it-geo-form-field [field]="field"></it-geo-form-field>
+            </div>
+        </form>
         <!-- <p>{{dynamicForm | json}}</p> -->
-        <div class="balans-row" *ngFor="let field of block.fields">
-            <!-- <span> {{field.style | json}} </span>  -->
-            <it-geo-form-field [field]="field"></it-geo-form-field>
-        </div>
+   
     </mat-card-content>
     <mat-divider></mat-divider>
     <mat-card-content>
         <div class="balans-row" *ngFor="let child of block.children">
-            <it-geo-form-block [block]="child" [(dynamicForm)]="dynamicForm"></it-geo-form-block>
+            <it-geo-form-block [block]="child" [dynamicForm]="dynamicForm"></it-geo-form-block>
         </div>
     </mat-card-content>
     <mat-card-actions>
