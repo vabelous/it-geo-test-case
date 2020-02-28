@@ -2,8 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription, Subject } from 'rxjs';
 import { DynamicFormService } from '@it-geo-services/dynamic-form';
 import { tap } from 'rxjs/operators';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
-import { FormControlService } from '@it-geo-services/form-control';
 import { ITGeoFormControl, ITGeoFormGroup } from '@it-geo-models/form-control-dto';
 
 @Component({
@@ -15,12 +13,11 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
 
 	public dynamicFormSub$: Subscription;
 	public dynamicForm$: Subject<DynamicFormDTO>;
-	public dynamicForm: FormGroup;
+	public dynamicForm: ITGeoFormGroup;
 	constructor(
-		private fb: FormBuilder,
 		private dynamicFormService: DynamicFormService,
-		private formControlService: FormControlService,
 	) {
+		this.dynamicForm = new ITGeoFormGroup({});
 		this.dynamicForm$ = new Subject<DynamicFormDTO>();
 	}
 
@@ -29,7 +26,6 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
 			.pipe(
 				tap(response => this.dynamicForm$.next(response)),
 				tap(response => {
-					const dynamicForm = new ITGeoFormGroup({});
 					function getFiedlState(field: DynamicFormModelFieldDTO): ITGeoFormControl {
 						const fc = new ITGeoFormControl();
 						// fc.setValidators(this.getValidatorsByName(field.validators));
@@ -63,9 +59,10 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
 						}	
 					}
 					response.model.forEach(item => {
-						buildGroup(dynamicForm, item)
+						buildGroup(this.dynamicForm, item)
 					})
-					console.log(dynamicForm);
+					console.log(this.dynamicForm);
+
 				})
 
 			)
