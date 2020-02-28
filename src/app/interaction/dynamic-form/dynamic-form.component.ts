@@ -46,7 +46,7 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
 						fc.updateValueAndValidity();
 						return fc;
 					}
-					const buildControls = (fields: DynamicFormModelFieldsDTO) => {
+					const buildControls = (fields: DynamicFormModelFieldsDTO): any => {
 						let groupOfFields: { [key: string]: ITGeoFormControl } = {};
 						fields.forEach(field => {
 							groupOfFields[field.key] = getFiedlState(field)
@@ -59,13 +59,13 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
 							block.children.forEach((item) => buildGroup(group.get(block.key) as FormGroup, item));
 						}
 						if (block.fields.length) {
-							group.addControl(block.key, this.fb.array((block.fields)))
+							group.addControl(block.key, this.fb.group((buildControls(block.fields))))
 						}	
 					}
 					response.model.forEach(item => {
 						buildGroup(dynamicForm, item)
 					})
-					// console.log(dynamicForm);
+					console.log(dynamicForm);
 				})
 
 			)
