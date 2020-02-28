@@ -46,20 +46,20 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
 						fc.updateValueAndValidity();
 						return fc;
 					}
-					const buildControls = (fields: DynamicFormModelFieldsDTO): any => {
+					function buildControls(fields: DynamicFormModelFieldsDTO): any  {
 						let groupOfFields: { [key: string]: ITGeoFormControl } = {};
 						fields.forEach(field => {
 							groupOfFields[field.key] = getFiedlState(field)
 						})
 						return groupOfFields;
 					}
-					const buildGroup = (group: ITGeoFormGroup, block: DynamicFormModelBlockDTO) => {
+					function buildGroup(group: ITGeoFormGroup, block: DynamicFormModelBlockDTO) {
 						if (block.children.length) {
 							group.addControl(block.key, new ITGeoFormGroup({}))
 							block.children.forEach((item) => buildGroup(group.get(block.key) as ITGeoFormGroup, item));
 						}
 						if (block.fields.length) {
-							group.addControl(block.key, new ITGeoFormGroup((buildControls(block.fields))))
+							group.addControl(block.key, new ITGeoFormGroup(buildControls(block.fields)))
 						}	
 					}
 					response.model.forEach(item => {
