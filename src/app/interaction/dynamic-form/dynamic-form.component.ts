@@ -29,7 +29,7 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
 			.pipe(
 				tap(response => this.dynamicForm$.next(response)),
 				tap(response => {
-					const dynamicForm = this.fb.group({});
+					const dynamicForm = new ITGeoFormGroup({});
 					function getFiedlState(field: DynamicFormModelFieldDTO): ITGeoFormControl {
 						const fc = new ITGeoFormControl();
 						// fc.setValidators(this.getValidatorsByName(field.validators));
@@ -53,13 +53,13 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
 						})
 						return groupOfFields;
 					}
-					const buildGroup = (group: FormGroup, block: DynamicFormModelBlockDTO) => {
+					const buildGroup = (group: ITGeoFormGroup, block: DynamicFormModelBlockDTO) => {
 						if (block.children.length) {
-							group.addControl(block.key, this.fb.group({}))
-							block.children.forEach((item) => buildGroup(group.get(block.key) as FormGroup, item));
+							group.addControl(block.key, new ITGeoFormGroup({}))
+							block.children.forEach((item) => buildGroup(group.get(block.key) as ITGeoFormGroup, item));
 						}
 						if (block.fields.length) {
-							group.addControl(block.key, this.fb.group((buildControls(block.fields))))
+							group.addControl(block.key, new ITGeoFormGroup((buildControls(block.fields))))
 						}	
 					}
 					response.model.forEach(item => {
