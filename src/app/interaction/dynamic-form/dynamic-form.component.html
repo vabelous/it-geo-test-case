@@ -3,12 +3,19 @@
 [formGroup]="dynamicForm" 
 (ngSubmit)="onSubmit()"
 >
-<div *ngFor="let block of (dynamicForm$ | async)?.model">
-    <!-- <it-geo-form-block [block]="block" [dynamicForm]="dynamicForm"></it-geo-form-block> -->
-</div>  
 
-<div>
-    <!-- <button type="submit" [disabled]="!dynamicForm.valid">Сохранить</button> -->
-</div>
+<!-- <p> {{dynamicForm}} </p> -->
+<!-- <ng-template #recursiveBlock let-controls>
+    <p>{{controls | json}}</p> -->
+    <!-- <ng-container *ngFor="let item of controls">
+     
+    </ng-container> -->
+
+<!-- </ng-template>
+<ng-container *ngTemplateOutlet="recursiveBlock; context:{ $implicit: dynamicForm.get('primaryInformation')}">
+
+</ng-container> -->
+
+
 </form>
 

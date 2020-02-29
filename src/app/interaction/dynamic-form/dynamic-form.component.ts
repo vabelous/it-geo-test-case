@@ -58,15 +58,18 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
 							group.addControl(block.key, new ITGeoFormGroup(buildControls(block.fields)))
 						}	
 					}
+					const form = new ITGeoFormGroup({});
 					response.model.forEach(block => {
-						buildGroup(this.dynamicForm, block)
+						buildGroup(form, block)
 					})
+					this.dynamicForm = form;
+
 					console.log(this.dynamicForm);
 
 				})
 
 			)
-			.subscribe();
+			.subscribe(() => console.log(this.dynamicForm));
 
 
 	}
