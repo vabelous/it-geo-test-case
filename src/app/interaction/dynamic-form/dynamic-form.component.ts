@@ -3,6 +3,9 @@ import { Subscription, Subject } from 'rxjs';
 import { DynamicFormService } from '@it-geo-services/dynamic-form';
 import { tap } from 'rxjs/operators';
 import { ITGeoFormControl, ITGeoFormGroup } from '@it-geo-models/form-control-dto';
+import { ValidatorFn } from '@angular/forms';
+import { ValidatorsService } from '@it-geo-services/validators/validators.sercice';
+import { MasksService } from '@it-geo-services/masks/masks.service';
 
 @Component({
 	selector: 'app-dynamic-form',
@@ -16,6 +19,8 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
 	public dynamicForm: ITGeoFormGroup;
 	constructor(
 		private dynamicFormService: DynamicFormService,
+		private validatorsService: ValidatorsService,
+		private masksService: MasksService
 	) {
 		this.dynamicForm = new ITGeoFormGroup({});
 		this.dynamicForm$ = new Subject<DynamicFormDTO>();
@@ -26,9 +31,9 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
 			.pipe(
 				tap(response => this.dynamicForm$.next(response)),
 				tap(response => {
-					function getFiedlState(field: DynamicFormModelFieldDTO): ITGeoFormControl {
+					const getFiedlState = (field: DynamicFormModelFieldDTO): ITGeoFormControl => {
 						const fc = new ITGeoFormControl();
-						// fc.setValidators(this.getValidatorsByName(field.validators));
+						fc.setValidators(getValidatorsByName(field.validators));
 						fc.setValue(field.defaultValue);
 						fc[field.disabled]();
 						fc.placeholder = field.placeholder;
@@ -42,6 +47,15 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
 						fc.updateValueAndValidity();
 						return fc;
 					}
+
+					const getValidatorsByName = (validators: Array<string>): Array<ValidatorFn> => {
+						if (!validators || !validators.length) { return null}
+						const validatorsArray: Array<ValidatorFn> = [];
+						validators.forEach(validator => validatorsArray.push(this.validatorsService.getValidatorByName(validator)));
+						console.log(validatorsArray);
+						return validatorsArray;
+					}
+
 					function buildControls(fields: DynamicFormModelFieldsDTO): any  {
 						let groupOfFields: { [key: string]: ITGeoFormControl } = {};
 						fields.forEach(field => {

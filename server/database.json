@@ -223,7 +223,7 @@
                 "placeholder" : "Телефон",
                 "tooltip" : "Введите телефонный номер",
                 "required" : true,
-                "mask" : null,
+                "mask" : "phoneMask",
                 "style" : null
             },
             {

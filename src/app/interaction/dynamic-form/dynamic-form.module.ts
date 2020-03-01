@@ -8,6 +8,7 @@ import { DynamicFormMaterialModule } from './dynamic-form-material.module';
 import { DynamicFormComponent } from './dynamic-form.component';
 import { FormBlockComponent } from './components/form-block/form-block.component';
 import { FormFieldComponent } from './components/form-field/form-field.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { FormFieldComponent } from './components/form-field/form-field.component
 		TextMaskModule,
 		DynamicFormRoutingModule,
 		DynamicFormMaterialModule,
+		FlexLayoutModule,
 	],
 	declarations: [
 		DynamicFormComponent,
