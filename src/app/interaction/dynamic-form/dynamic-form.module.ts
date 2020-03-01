@@ -6,8 +6,6 @@ import { TextMaskModule } from 'angular2-text-mask';
 import { DynamicFormRoutingModule } from './dynamic-form-routing.module';
 import { DynamicFormMaterialModule } from './dynamic-form-material.module';
 import { DynamicFormComponent } from './dynamic-form.component';
-import { FormBlockComponent } from './components/form-block/form-block.component';
-import { FormFieldComponent } from './components/form-field/form-field.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 
@@ -22,14 +20,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 		FlexLayoutModule,
 	],
 	declarations: [
-		DynamicFormComponent,
-		FormBlockComponent,
-		FormFieldComponent,
+		DynamicFormComponent
 	],
 	exports: [
-		DynamicFormComponent,
-		FormBlockComponent,
-		FormFieldComponent,
+		DynamicFormComponent
 	]
 })
 export class DynamicFormModule {}

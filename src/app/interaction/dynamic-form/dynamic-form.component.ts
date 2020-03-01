@@ -52,7 +52,7 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
 						if (!validators || !validators.length) { return null}
 						const validatorsArray: Array<ValidatorFn> = [];
 						validators.forEach(validator => validatorsArray.push(this.validatorsService.getValidatorByName(validator)));
-						console.log(validatorsArray);
+						// console.log(validatorsArray);
 						return validatorsArray;
 					}
 
@@ -78,12 +78,12 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
 					})
 					this.dynamicForm = form;
 
-					console.log(this.dynamicForm);
+					// console.log(this.dynamicForm);
 
 				})
 
 			)
-			.subscribe(() => console.log(this.dynamicForm));
+			.subscribe();
 
 
 	}
