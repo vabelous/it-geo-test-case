@@ -34,7 +34,7 @@ export class FormControlService {
         if (!validators || !validators.length) { return null}
         const validatorsArray: Array<ValidatorFn> = [];
         validators.forEach(validator => validatorsArray.push(this.validatorsService.getValidatorByName(validator)));
-        console.log(validatorsArray);
+        // console.log(validatorsArray);
         return validatorsArray;
     }
 }

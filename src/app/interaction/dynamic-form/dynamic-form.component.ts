@@ -79,7 +79,7 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
 					})
 					this.dynamicForm = form;
 
-					console.log(this.dynamicForm);
+					// console.log(this.dynamicForm);
 
 				}),
 				tap(response => this.dynamicForm$.next(response)),

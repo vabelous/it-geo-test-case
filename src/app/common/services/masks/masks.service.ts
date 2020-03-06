@@ -31,7 +31,6 @@ export class MasksService {
             case "OKVEDMask":
                 return OKVEDMask;
             case "phoneMask":
-                console.log(phoneMask);
                 return phoneMask;
 			default:
 				throw new Error(('Unknown kind of mask!'));
