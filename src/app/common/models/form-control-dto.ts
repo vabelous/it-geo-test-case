@@ -13,6 +13,8 @@ export interface FormControlSelectOptionDTO {
     value : string;
 } 
 
+declare interface FormControlSelectOptionsDTO extends Array<FormControlSelectOptionDTO> {}
+
 export abstract class ITGeoAbstractControl extends AbstractControl {
     key? : string;
     protractorId?: string;
@@ -22,7 +24,7 @@ export abstract class ITGeoAbstractControl extends AbstractControl {
     disabledProperty? : FormControlDisabledPropertyDTO;
     autocomplete? : FormControlAutocompleteDTO;
     defaultValue? : string | number | boolean;
-    options? : FormControlSelectOptionDTO;
+    options? : FormControlSelectOptionsDTO;
     placeholder? : string;
     tooltip? : string;
     required? : boolean;
@@ -30,6 +32,7 @@ export abstract class ITGeoAbstractControl extends AbstractControl {
     validators? : Array<string>;
     style?: string;
 }
+
 
 export class ITGeoFormControl extends FormControl {
     key? : string;
@@ -40,7 +43,7 @@ export class ITGeoFormControl extends FormControl {
     disabledProperty? : FormControlDisabledPropertyDTO;
     autocomplete? : FormControlAutocompleteDTO;
     defaultValue? : string | number | boolean;
-    options? : FormControlSelectOptionDTO;
+    options? : FormControlSelectOptionsDTO;
     placeholder? : string;
     tooltip? : string;
     required? : boolean;

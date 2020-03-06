@@ -109,7 +109,7 @@
                 "disabled" : "enable",
                 "autocomplete" : null,
                 "defaultValue" : null,
-                "option" : [
+                "options" : [
                     {
                         "key" : "101",
                         "value" : "Заключение договоров социального найма жилых помещений жилищного фонда города Москвы, предоставленных по ордеру или на основании иных решений органов исполнительной власти города Москвы"
@@ -135,7 +135,7 @@
                 "disabled" : "enable",
                 "autocomplete" : null,
                 "defaultValue" : null,
-                "option" : [
+                "options" : [
                     {
                         "key" : "1",
                         "value" : "ДГИ"
@@ -159,7 +159,7 @@
                 "disabled" : "enable",
                 "autocomplete" : "off",
                 "defaultValue" : null,
-                "option" : null,
+                "options" : null,
                 "placeholder" : "Полное наименование юридического лица",
                 "tooltip" : "Введите полное наименование юридическоголица",
                 "required" : true,
@@ -174,7 +174,7 @@
                 "disabled" : "enable",
                 "autocomplete" : "off",
                 "defaultValue" : null,
-                "option" : null,
+                "options" : null,
                 "placeholder" : "Юридический адрес",
                 "tooltip" : "Введите юридический адрес",
                 "required" : true,
@@ -189,11 +189,11 @@
                 "disabled" : "enable",
                 "autocomplete" : "off",
                 "defaultValue" : null,
-                "option" : null,
+                "options" : null,
                 "placeholder" : "ОГРН",
                 "tooltip" : "Введите Основной государственный регистрационный номер",
                 "required" : true,
-                "mask" : null,
+                "mask" : "OGRNMask",
                 "style" : null
             },
             {
@@ -204,11 +204,11 @@
                 "disabled" : "enable",
                 "autocomplete" : "off",
                 "defaultValue" : null,
-                "option" : null,
+                "options" : null,
                 "placeholder" : "ИНН",
                 "tooltip" : "Введите Идентификационный номер налогоплательщика",
                 "required" : true,
-                "mask" : null,
+                "mask" : "INN12DgMask",
                 "style" : null
             },
             {
@@ -219,7 +219,7 @@
                 "disabled" : "enable",
                 "autocomplete" : "off",
                 "defaultValue" : null,
-                "option" : null,
+                "options" : null,
                 "placeholder" : "Телефон",
                 "tooltip" : "Введите телефонный номер",
                 "required" : true,
@@ -234,7 +234,7 @@
                 "disabled" : "enable",
                 "autocomplete" : "off",
                 "defaultValue" : null,
-                "option" : null,
+                "options" : null,
                 "placeholder" : "E-mail",
                 "tooltip" : "Введите адрес электронной почты",
                 "required" : true,

@@ -29,7 +29,7 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
 	ngOnInit(): void {
 		this.dynamicFormSub$ = this.dynamicFormService.getDynamicForm()
 			.pipe(
-				tap(response => this.dynamicForm$.next(response)),
+				// tap(response => this.dynamicForm$.next(response)),
 				tap(response => {
 					const getFiedlState = (field: DynamicFormModelFieldDTO): ITGeoFormControl => {
 						const fc = new ITGeoFormControl();
@@ -37,12 +37,13 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
 						fc.setValue(field.defaultValue);
 						fc[field.disabled]();
 						fc.placeholder = field.placeholder;
-						fc.mask = field.mask ? this.masksService.getMaskByName(field.mask) : null;
+						fc.mask = field.mask ? this.masksService.getMaskByName(field.mask): null;
 						fc.label = field.label;
 						fc.fieldType = field.fieldType;
 						fc.inputType = field.inputType;
 						fc.autocomplete = field.autocomplete;
 						fc.required = field.required;
+						fc.options = field.options;
 						fc.key = field.key;
 						fc.updateValueAndValidity();
 						return fc;
@@ -78,9 +79,10 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
 					})
 					this.dynamicForm = form;
 
-					// console.log(this.dynamicForm);
+					console.log(this.dynamicForm);
 
-				})
+				}),
+				tap(response => this.dynamicForm$.next(response)),
 
 			)
 			.subscribe();

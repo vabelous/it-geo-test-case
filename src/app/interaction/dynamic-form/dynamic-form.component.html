@@ -15,17 +15,32 @@
                 <form [formGroup]="group.get(block.key)" (ngSubmit)="onSubmit()">
                     <div *ngIf="block && block.fields.length" fxLayout="column">
                         <ng-container *ngFor="let field of block.fields">
-                            <mat-form-field *ngIf="field.fieldType === 'input'">
-                                <mat-label>{{field.label}}</mat-label>
-                                <input 
-                            
-                                [autocomplete]="field.autocomplete"
-								[type]="field.InputType"
-								[required]="field.required"
-								[placeholder]="field.placeholder"
-                                [formControlName]="field.key" 
-                                matInput>
-                            </mat-form-field>
+                            <div [ngSwitch]="group.get(block.key).get(field.key).fieldType">
+                                <mat-form-field  fxFlex *ngSwitchCase="'input'">
+                                    <mat-label>{{field.label}}</mat-label>
+                                    <input 
+                                    [textMask]="group.get(block.key).get(field.key).mask"
+                                    [autocomplete]="group.get(block.key).get(field.key).autocomplete"
+                                    [type]="group.get(block.key).get(field.key).InputType"
+                                    [required]="group.get(block.key).get(field.key).required"
+                                    [placeholder]="group.get(block.key).get(field.key).placeholder"
+                                    [formControlName]="group.get(block.key).get(field.key).key" 
+                                    matInput>
+                                </mat-form-field>
+                                <mat-form-field fxFlex *ngSwitchCase="'select'">
+                                    <mat-label>{{field.label}}</mat-label>
+                                    <mat-select
+                                        [formControlName]="group.get(block.key).get(field.key).key"
+                                        [required]="group.get(block.key).get(field.key).required"
+                                        >
+                                        <mat-option 
+                                            *ngFor="let option of field.options" 
+                                            [value]="option.key"
+                                            >{{option.value}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
                         </ng-container>
                     </div>
                     <div *ngIf="block && block.children.length">
